@@ -32,7 +32,7 @@
     $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());
 
 
-    header("location: /ingsoftware/doctor/patients.php");
+    header("location: /medpa/doctor/patients.php");
 
 
 

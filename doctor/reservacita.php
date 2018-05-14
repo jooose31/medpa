@@ -23,7 +23,7 @@
     $query2 = "INSERT INTO cita VALUES ('$correo','$scorreo',0,0,0,0,'p','$nfecha')";
     $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());
 
-    header("location: /ingsoftware/doctor/inicio.php");
+    header("location: /medpa/doctor/inicio.php");
 
 
 

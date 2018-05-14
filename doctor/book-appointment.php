@@ -132,7 +132,7 @@
                     <!--<li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
                     <li><a data-placement="bottom" title="Ir a pacientes" href="patients.php"><i class="zmdi zmdi-account"></i></a></li>
                     <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
-                    <li><a data-placement="bottom" title="Pantalla de inicio" href="../index.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                    <li><a data-placement="bottom" title="log out" href="logout.php" ><i class="zmdi zmdi-sign-in"></i></a></li>
                 </ul>
             </div>
             <!--<div class="quick-stats">

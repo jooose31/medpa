@@ -51,7 +51,7 @@
 
 
 
-    header("location: /ingsoftware/doctor/inicio.php");
+    header("location: /medpa/doctor/inicio.php");
 
 
 

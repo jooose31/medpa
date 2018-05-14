@@ -26,15 +26,20 @@
     $type = $line["tipo"];
 
     if (!$result) {
-      header("location: ingsoftware/index.html");
+      header("location: medpa/index.html");
 
     }elseif ($type=="d") {
       session_start();
       $_SESSION['correo']  = $cemail;
       $_SESSION['password']  = $cpass;
       $_SESSION['type']  = $type;
-      header("location: /ingsoftware/doctor/inicio.php");
+      header("location: /medpa/doctor/inicio.php");
 
+    }elseif ($type == "p") {
+      $_SESSION['correo']  = $cemail;
+      $_SESSION['password']  = $cpass;
+      $_SESSION['type']  = $type;
+      header("location: /medpa/paciente/inicio.php");
     }
 
 
