@@ -102,7 +102,7 @@
               $scorreo=$_SESSION['correo'];
 
               $query = "SELECT nombre
-                        FROM doctores
+                        FROM paciente
                         WHERE correod = '$scorreo'";
             $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
             $line = pg_fetch_array($result);

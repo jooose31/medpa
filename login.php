@@ -25,8 +25,10 @@
     $cpass = $line["pass"];
     $type = $line["tipo"];
 
-    if (!$result) {
-      header("location: medpa/index.html");
+    
+
+    if ($cemail != $email) {
+      header("location: index.html");
 
     }elseif ($type=="d") {
       session_start();
@@ -36,6 +38,7 @@
       header("location: /medpa/doctor/inicio.php");
 
     }elseif ($type == "p") {
+      session_start();
       $_SESSION['correo']  = $cemail;
       $_SESSION['password']  = $cpass;
       $_SESSION['type']  = $type;

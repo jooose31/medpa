@@ -1,3 +1,9 @@
+<?php
+    session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,7 +104,7 @@
               //fin de la conexion -------------------------------------------------------------------------
 
 
-              session_start();
+              
               $scorreo=$_SESSION['correo'];
 
               $query = "SELECT nombre
@@ -252,7 +258,7 @@
                               //fin de la conexion -------------------------------------------------------------------------
 
 
-                              // session_start();
+                              
                               // $scorreo=$_SESSION['correo'];
                               $query5 = "SELECT C.correop,P.nombre, C.fechahora,C.estado
                               FROM cita C, paciente P
