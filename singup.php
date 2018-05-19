@@ -24,12 +24,18 @@
                 WHERE correod = '$email' ";
     $result1 = pg_query($link, $query1) or die('Query failed: ' . pg_last_error());
 
-    if ($result != $email ) {
-      if ($result1 != $email) {
-        // code...
+
+      if ($result1 != $email) { //para ver si no es usuario ya existente
+        if ($result != $email ) { // verificar si es doctor para el tipo
+          $query2 = "INSERT INTO usuarios
+                    VALUES ('$name','$email','p','$pass')";}
+
+          $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());
+        }else {
+          header("location: index.html");
+        }
       }
 
-    }
 
 
 
