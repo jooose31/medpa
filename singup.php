@@ -21,20 +21,29 @@
 
     $query1 = "SELECT correo
                 FROM usuarios
-                WHERE correod = '$email' ";
+                WHERE correo = '$email' ";
     $result1 = pg_query($link, $query1) or die('Query failed: ' . pg_last_error());
 
 
       if ($result1 != $email) { //para ver si no es usuario ya existente
         if ($result != $email ) { // verificar si es doctor para el tipo
           $query2 = "INSERT INTO usuarios
-                    VALUES ('$name','$email','p','$pass')";}
-
+                    VALUES ('$name','$email','p','$pass')";
           $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());
+
+          header("location: index.html");
         }else {
+          $query2 = "INSERT INTO usuarios
+                    VALUES ('$name','$email','d','$pass')";
+          $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());
           header("location: index.html");
         }
+
+
+      }else {
+
       }
+
 
 
 

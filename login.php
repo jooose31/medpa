@@ -25,24 +25,24 @@
     $cpass = $line["pass"];
     $type = $line["tipo"];
 
-    
 
-    if ($cemail != $email) {
-      header("location: index.html");
 
-    }elseif ($type=="d") {
+    if ($cemail = $email && $type == "d") {
       session_start();
       $_SESSION['correo']  = $cemail;
       $_SESSION['password']  = $cpass;
       $_SESSION['type']  = $type;
       header("location: /medpa/doctor/inicio.php");
 
-    }elseif ($type == "p") {
+    }elseif ($cemail = $email && $type == "p") {
       session_start();
       $_SESSION['correo']  = $cemail;
       $_SESSION['password']  = $cpass;
       $_SESSION['type']  = $type;
       header("location: /medpa/paciente/inicio.php");
+
+    }else {
+      header("location: /index.html");
     }
 
 
