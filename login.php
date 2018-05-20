@@ -29,14 +29,14 @@
 
     if ($cemail = $email && $type == "d") {
       session_start();
-      $_SESSION['correo']  = $cemail;
+      $_SESSION['correo']  = $email;
       $_SESSION['password']  = $cpass;
       $_SESSION['type']  = $type;
       header("location: /medpa/doctor/inicio.php");
 
     }elseif ($cemail = $email && $type == "p") {
       session_start();
-      $_SESSION['correo']  = $cemail;
+      $_SESSION['correo']  = $email;
       $_SESSION['password']  = $cpass;
       $_SESSION['type']  = $type;
       header("location: /medpa/paciente/inicio.php");
