@@ -52,7 +52,7 @@
       </li>
 
       <li>
-
+        
       </li>
     </ul>
   </li>
@@ -165,7 +165,7 @@
                     <!--<li><a data-placement="bottom" title="Ir a bandeja de entrada" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
                     <li><a data-placement="bottom" title="Ir a pacientes" href="patients.php"><i class="zmdi zmdi-account"></i></a></li>
                     <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
-                    <li><a data-placement="bottom" title="log out" href="logout.php" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                    <li><a data-placement="bottom" title="Pantalla Completa" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
                 </ul>
             </div>
 
@@ -179,7 +179,7 @@
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Cita</span> </a>
                     <ul class="ml-menu">
 
-                        <li><a href="book-appointment.php">Reservar cita</a></li>
+                        <li><a href="book-appointment.html">Reservar cita</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Reportes</span> </a>
@@ -456,7 +456,7 @@
 <div class="color-bg"></div>
 <!-- Jquery Core Js -->
 <script src="../assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="../assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 
 <script src="../assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 <script src="../assets/js/morphing.js"></script><!-- Custom Js -->

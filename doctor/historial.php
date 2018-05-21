@@ -260,7 +260,7 @@
                               // $scorreo=$_SESSION['correo'];
                               $query5 = "SELECT P.nombre,C.fechahora, C.temperatura,C.peso,C.presionart,C.presionres,R.informacion, C.estado
                               FROM cita C, paciente P,receta R
-                              WHERE c.correop = '$correopa' and C.correop = P.correop and R.correop = P.correop and C.estado = 'f' and Date(C.fechahora) = R.fecha";
+                              WHERE c.correop = '$correopa' and C.correop = P.correop and R.correop = P.correop and C.estado = 'f' ";
                               $result5 = pg_query($link, $query5);
                               $count=1;
                               while ($line = pg_fetch_array($result5)) {
