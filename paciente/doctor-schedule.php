@@ -236,9 +236,9 @@
         <div class="user-info">
             <div class="admin-image"> <img src="assets/images/happy.png" alt=""> </div>
             <div class="admin-action-info"> <span>Bienvenido</span>
-                <h3>Paciente</h3>
+                
 				
-		<?php
+            <?php
               $user= "postgres";
               $password = "root";
               $dbname = "pacidoc";
@@ -260,9 +260,9 @@
                         WHERE correop = '$scorreo'";
             $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
             $line = pg_fetch_array($result);
-            $doc = $line["nombre"];
+            $pac = $line["nombre"];
 
-            echo "<h3>$doc</h3>";
+            echo "<h3>$pac</h3>";
 
               //fin de la conexion a la bd------------------------------------------------------------
               pg_close($link);
@@ -277,9 +277,9 @@
 				
                 <ul>
                     <!--<li><a data-placement="bottom" title="Ir a bandeja de entrada" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
-                    <li><a data-placement="bottom" title="Ir a doctores" href="doctors.html"><i class="zmdi zmdi-account"></i></a></li>                    
+                    <li><a data-placement="bottom" title="Ir a doctores" href="doctors.php"><i class="zmdi zmdi-account"></i></a></li>                    
                     <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
-                    <li><a data-placement="bottom" title="Pantalla completa" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                    <li><a data-placement="bottom" title="log out" href="logout.php" ><i class="zmdi zmdi-sign-in"></i></a></li>
                 </ul>
             </div>
             <!--<div class="quick-stats">
@@ -296,24 +296,24 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">Navegación Principal</li>
-                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>                                               
+                <li><a href="inicio.php"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>                                               
                 <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Cita</span> </a>
                     <ul class="ml-menu">
-                        <li class="active"><a href="doctor-schedule.html">Calendario</a></li>
-                        <li><a href="book-appointment.html">Reservar cita</a></li>
+                        <!--<li class="active"><a href="doctor-schedule.html">Calendario</a></li>-->
+                        <li><a href="book-appointment.php">Reservar cita</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-file-text"></i><span>Reportes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="recetas.html">Mis recetas</a></li>
+                        <li><a href="recetas.php">Mis recetas</a></li>
                         <!--<li><a href="add-doctor.html">Agregar doctor</a></li>-->                    
-                        <li><a href="examen.html">Mis exámenes</a></li>
+                        <li><a href="examen.php">Mis exámenes</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Doctores</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="doctors.html">Todos los doctores</a></li>
-                        <li><a href="add-doctor.html">Agregar doctor</a></li>                      
+                        <li><a href="doctors.php">Todos los doctores</a></li>
+                        <li><a href="add-doctor.php">Agregar doctor</a></li>                      
                         <!--<li><a href="patient-profile.html">Perfil del paciente</a></li>
                         <!--<li><a href="patient-invoice.html">Patient Invoice</a></li>-->
                     </ul>

@@ -142,7 +142,7 @@
         <div class="user-info">
             <div class="admin-image"> <img src="assets/images/happy.png" alt=""> </div>
             <div class="admin-action-info"> <span>Bienvenido</span>
-                <h3>Paciente</h3>
+                
 		<?php
               $user= "postgres";
               $password = "root";
@@ -165,9 +165,9 @@
                         WHERE correop = '$scorreo'";
             $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
             $line = pg_fetch_array($result);
-            $doc = $line["nombre"];
+            $pac = $line["nombre"];
 
-            echo "<h3>$doc</h3>";
+            echo "<h3>$pac</h3>";
 
               //fin de la conexion a la bd------------------------------------------------------------
               pg_close($link);
@@ -218,69 +218,16 @@
                         <!-- <li><a href="patient-invoice.html">Patient Invoice*</a></li>-->
 					</ul>
                 </li>
-                <!--<li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>Pagos</span> </a>
-                    <ul class="ml-menu">
-                        <li> <a href="payments.html">Pagos</a></li>
-                        <li> <a href="add-payments.html">Agregar Pagos</a></li>
-                        <li> <a href="patient-invoice.html">Patient Invoice*</a></li>
-                    </ul>
-                </li>-->
+               
                 <!--<li><a href="reports.html"><i class="zmdi zmdi-file-text"></i><span>Reportes</span></a></li>
-                <!--<li><a href="widgets.html"><i class="zmdi zmdi-delicious"></i><span>Widgets</span></a></li>
-                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>Extra Pages</span> </a>
-                    <ul class="ml-menu">
-                        <li> <a href="sign-in.html">Sign In</a> </li>
-                        <li> <a href="sign-up.html">Sign Up</a> </li>
-                        <li> <a href="forgot-password.html">Forgot Password</a> </li>
-                        <li> <a href="404.html">Page 404</a> </li>
-                        <li> <a href="500.html">Page 500</a> </li>
-                        <li> <a href="page-offline.html">Page Offline</a> </li>
-                        <li> <a href="locked.html">Locked Screen</a> </li>
-                        <li> <a href="blank.html">Blank Page</a> </li>
-                    </ul>
-                </li>
+               
+            
                 <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>User Interface (UI)</span> </a>
-                    <ul class="ml-menu">
-                        <li> <a href="typography.html">Typography</a> </li>
-                        <li> <a href="helper-classes.html">Helper Classes</a></li>
-                        <li> <a href="alerts.html">Alerts</a> </li>
-                        <li> <a href="animations.html">Animations</a> </li>
-                        <li> <a href="badges.html">Badges</a> </li>
-                        <li> <a href="breadcrumbs.html">Breadcrumbs</a> </li>
-                        <li> <a href="buttons.html">Buttons</a> </li>
-                        <li> <a href="collapse.html">Collapse</a> </li>
-                        <li> <a href="colors.html">Colors</a> </li>
-                        <li> <a href="dialogs.html">Dialogs</a> </li>
-                        <li> <a href="icons.html">Icons</a> </li>
-                        <li> <a href="labels.html">Labels</a> </li>
-                        <li> <a href="list-group.html">List Group</a> </li>
-                        <li> <a href="media-object.html">Media Object</a> </li>
-                        <li> <a href="modals.html">Modals</a> </li>
-                        <li> <a href="notifications.html">Notifications</a> </li>
-                        <li> <a href="pagination.html">Pagination</a> </li>
-                        <li> <a href="preloaders.html">Preloaders</a> </li>
-                        <li> <a href="progressbars.html">Progress Bars</a> </li>
-                        <li> <a href="range-sliders.html">Range Sliders</a> </li>
-                        <li> <a href="sortable-nestable.html">Sortable & Nestable</a> </li>
-                        <li> <a href="tabs.html">Tabs</a> </li>
-                        <li> <a href="thumbnails.html">Thumbnails</a> </li>
-                        <li> <a href="tooltips-popovers.html">Tooltips & Popovers</a> </li>
-                        <li> <a href="waves.html">Waves</a> </li>
-                    </ul>
-                </li>
-                <li class="header">LABELS</li>
-                <li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-red"></i><span>Important</span> </a> </li>
-                <li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-amber"></i><span>Warning</span> </a> </li>
-                <li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-blue"></i><span>Information</span> </a> </li>
-				</aside>
-            </ul>
-        </div>-->
-        <!-- #Menu -->
     		</ul>
 		</div>
 	</aside>
 	
-    <!-- #END# Left Sidebar --> 
+    
     <!-- Right Sidebar -->
     <aside id="rightsidebar" class="right-sidebar">
         <ul class="nav nav-tabs tab-nav-right" role="tablist">
@@ -318,129 +265,17 @@
                         <div class="blush"></div>
                         <span>Rosado morado</span> </li>
                 </ul>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="chat">
-                <div class="demo-settings">
-                    <div class="search">
-                        <div class="input-group">
-                            <div class="form-line">
-                                <input type="text" class="form-control" placeholder="Search..." required autofocus>
-                            </div>
-                        </div>
-                    </div>
-                    <h6>Recent</h6>
-                    <ul>
-                        <li class="online">
-                            <div class="media"> <a class="pull-left" role="button" tabindex="0"> <img class="media-object " src="assets/images/random-avatar4.jpg" alt=""> </a>
-                                <div class="media-body"> <span class="name">Claire Sassu</span> <span class="message">Can you share the...</span> <span class="badge badge-outline status"></span> </div>
-                            </div>
-                        </li>
-                        <li class="online">
-                            <div class="media"> <a class="pull-left" role="button" tabindex="0"> <img class="media-object " src="assets/images/random-avatar5.jpg" alt=""> </a>
-                                <div class="media-body">
-                                    <div class="media-body"> <span class="name">Maggie jackson</span> <span class="message">Can you share the...</span> <span class="badge badge-outline status"></span> </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="online">
-                            <div class="media"> <a class="pull-left" role="button" tabindex="0"> <img class="media-object " src="assets/images/random-avatar3.jpg" alt=""> </a>
-                                <div class="media-body">
-                                    <div class="media-body"> <span class="name">Joel King</span> <span class="message">Ready for the meeti...</span> <span class="badge badge-outline status"></span> </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <h6>Contacts</h6>
-                    <ul>
-                        <li class="offline">
-                            <div class="media"> <a class="pull-left" role="button" tabindex="0"> <img class="media-object " src="assets/images/random-avatar4.jpg" alt=""> </a>
-                                <div class="media-body">
-                                    <div class="media-body"> <span class="name">Joel King</span> <span class="badge badge-outline status"></span> </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="online">
-                            <div class="media"> <a class="pull-left" role="button" tabindex="0"> <img class="media-object " src="assets/images/random-avatar5.jpg" alt=""> </a>
-                                <div class="media-body">
-                                    <div class="media-body"> <span class="name">Joel King</span> <span class="badge badge-outline status"></span> </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="offline">
-                            <div class="media"> <a class="pull-left " role="button" tabindex="0"> <img class="media-object " src="assets/images/random-avatar6.jpg" alt=""> </a>
-                                <div class="media-body">
-                                    <div class="media-body"> <span class="name">Joel King</span> <span class="badge badge-outline status"></span> </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="settings">
-                <div class="demo-settings">
-                    <p>Configuración General</p>
-                    <ul class="setting-list">
-                        <li> <span>Uso del Panel de informes</span>
-                            <div class="switch">
-                                <label>
-                                    <input type="checkbox" checked>
-                                    <span class="lever"></span></label>
-                            </div>
-                        </li>
-                        <li> <span>Redireccionamiento de correo electrónico</span>
-                            <div class="switch">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="lever"></span></label>
-                            </div>
-                        </li>
-                    </ul>
-                    <p>Configuración del Sistema</p>
-                    <ul class="setting-list">
-                        <li> <span>Notificationes</span>
-                            <div class="switch">
-                                <label>
-                                    <input type="checkbox" checked>
-                                    <span class="lever"></span></label>
-                            </div>
-                        </li>
-                        <li> <span>Actualizaciones automáticas</span>
-                            <div class="switch">
-                                <label>
-                                    <input type="checkbox" checked>
-                                    <span class="lever"></span></label>
-                            </div>
-                        </li>
-                    </ul>
-                    <p>Configuración de cuenta</p>
-                    <ul class="setting-list">
-                        <li> <span>Invisible</span>
-                            <div class="switch">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="lever"></span></label>
-                            </div>
-                        </li>
-                        <li> <span>Permiso de localización</span>
-                            <div class="switch">
-                                <label>
-                                    <input type="checkbox" checked>
-                                    <span class="lever"></span></label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!-- #END# Right Sidebar --> 
+            </div>    
+            
+            
+
 </section>
 
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
             <h2>Agregar Doctor</h2>
-            <small class="text-muted">Bienvenido a iMed</small>
+            <small class="text-muted">Bienvenido a MedPa</small>
         </div>
         <div class="row clearfix">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -449,14 +284,15 @@
 						<h2>Informacion Básica <small>Aquí la descripción...</small> </h2>
 						<ul class="header-dropdown m-r--5">
 							<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
-								<ul class="dropdown-menu pull-right">
+								<!--<ul class="dropdown-menu pull-right">
 									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
 									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
 									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-								</ul>
+								</ul>-->
 							</li>
 						</ul>
 					</div>
+    <form class="" action="agdoctor.php" method="get">
 					<div class="body">
                         <div class="row clearfix">
                             <div class="col-sm-6 col-xs-12">
@@ -467,13 +303,13 @@
 									
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
+                            <!--<div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <div class="form-line">
                                       <input type="text" class="form-control" placeholder="Apellidos">
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 							   <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <div class="form-line">
@@ -483,22 +319,7 @@
                             </div>
                         </div>
                         <div class="row clearfix">
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="datepicker form-control" placeholder="Fecha de Nacimiento">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form-group drop-custum">
-                                    <select class="form-control show-tick">
-                                        <option value="">-- Género --</option>
-                                        <option value="10">Masculino</option>
-                                        <option value="20">Femenino</option>
-                                    </select>
-                                </div>
-                            </div>
+                
                             <div class="col-sm-3 col-xs-12">
                                 <div class="form-group">
                                     <div class="form-line">
@@ -527,47 +348,35 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <textarea rows="4" class="form-control no-resize" placeholder="Escriba lo que desea compartir..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
+                        
                             <div class="col-xs-12">
                                 <button type="submit" class="btn btn-raised g-bg-cyan">LISTO</button>
-                                <button type="submit" class="btn btn-raised">Cancelar</button>
+                                
                             </div>
                         </div>
                     </div>
 				</div>
 			</div>
 		</div>
+    </form>
+        <form class="" action="padoc.php" method="get">
         <div class="row clearfix">
 			<div class="col-md-12 col-xs-12">
 				<div class="card">
 					<div class="header">
 						<h2>Información de la cuenta del doctor <small>Descripción...</small> </h2>
-						<ul class="header-dropdown m-r--5">
-							<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
-								<ul class="dropdown-menu pull-right">
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-								</ul>
-							</li>
-						</ul>
+
 					</div>
 					<div class="body">
                         <div class="row clearfix">
                             <div class="col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Usuario">
+                                        <input type="text" name="correo" class="form-control" placeholder="Correo del doctor">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
+                            <!--<div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" class="form-control" placeholder="Contraseña">
@@ -580,10 +389,10 @@
                                         <input type="text" class="form-control" placeholder="Confirmar Contraseña">
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-xs-12">
-                                <button type="submit" class="btn btn-raised g-bg-cyan">Crear</button>
-                                <button type="submit" class="btn btn-raised">Cancelar</button>
+                                <button type="submit" class="btn btn-raised g-bg-cyan">Agregar</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -651,10 +460,11 @@
                             </div>
                             <div class="col-xs-12">
                                 <button type="submit" class="btn btn-raised g-bg-cyan">Agregar</button>
-                                <button type="submit" class="btn btn-raised">Cancelar</button>
+                                <!--<button type="submit" class="btn btn-raised">Cancelar</button>-->
                             </div>
                         </div>
                     </div>
+                    </form>
 				</div>
 			</div>
 		</div>

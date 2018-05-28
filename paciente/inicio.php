@@ -99,16 +99,16 @@
 
 
               session_start();
-              $scorreo=$_SESSION['correo'];
+              $scorreo=$_SESSION['correop'];
 
               $query = "SELECT nombre
                         FROM paciente
-                        WHERE correod = '$scorreo'";
+                        WHERE correop = '$scorreo'";
             $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
             $line = pg_fetch_array($result);
-            $doc = $line["nombre"];
+            $pac = $line["nombre"];
 
-            echo "<h3>$doc</h3>";
+            echo "<h3>$pac</h3>";
 
               //fin de la conexion a la bd------------------------------------------------------------
               pg_close($link);

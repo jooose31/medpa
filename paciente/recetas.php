@@ -53,7 +53,7 @@
         </a>
       </li>
       <li>
-        <a href="doctors.html" data-mfb-label="Lista de doctores" class="mfb-component__button--child bg-orange">
+        <a href="doctores.php" data-mfb-label="Lista de doctores" class="mfb-component__button--child bg-orange">
           <i class="zmdi zmdi-account-o mfb-component__child-icon"></i>
         </a>
       </li>
@@ -137,7 +137,7 @@
         <div class="user-info">
             <div class="admin-image"> <img src="assets/images/happy.png" alt=""> </div>
             <div class="admin-action-info"> <span>Bienvenido</span>
-                <h3>Paciente</h3>
+        
 				
 				
 <?php
@@ -155,16 +155,16 @@
 
 
               session_start();
-              $scorreo=$_SESSION['correo'];
+              $scorreo=$_SESSION['correop'];
 
               $query = "SELECT nombre
                         FROM pacientes
                         WHERE correop = '$scorreo'";
             $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
             $line = pg_fetch_array($result);
-            $doc = $line["nombre"];
+            $pac = $line["nombre"];
 
-            echo "<h3>$doc</h3>";
+            echo "<h3>$pac</h3>";
 
               //fin de la conexion a la bd------------------------------------------------------------
               pg_close($link);
@@ -176,7 +176,7 @@
                     <!--<li><a data-placement="bottom" title="Ir a bandeja de entrada" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
                     <li><a data-placement="bottom" title="Ir a doctores" href="doctors.html"><i class="zmdi zmdi-account"></i></a></li>                    
                     <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
-                    <li><a data-placement="bottom" title="Pantalla completa" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                    <li><a data-placement="bottom" title="log out" href="logout.php" ><i class="zmdi zmdi-sign-in"></i></a></li>
                 </ul>
             </div>
 
@@ -186,16 +186,16 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">Navegación Principal</li>
-                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>                                               
+                <li class="active open"><a href="inicio.php"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>                                               
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Cita</span> </a>
                     <ul class="ml-menu">
                         <li><a href="doctor-schedule.html">Calendario</a></li>
-                        <li><a href="book-appointment.html">Reservar cita</a></li>
+                        <!--<li><a href="book-appointment.html">Reservar cita</a></li>-->
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-file-text"></i><span>Reportes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="recetas.html">Mis recetas</a></li>
+                        <li><a href="recetas.php">Mis recetas</a></li>
 						
                         <!--<li><a href="add-doctor.html">Agregar Doctor</a></li>-->                      
                         <li><a href="examen.html">Mis exámenes</a></li>
@@ -204,8 +204,8 @@
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Doctores</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="doctors.html">Todos los doctores</a></li>
-                        <li><a href="add-doctor.html">Agregar doctor</a></li>                       
+                        <li><a href="doctores.php">Todos los doctores</a></li>
+                        <li><a href="add-doctor.php">Agregar doctor</a></li>                       
                         <!--<li><a href="patient-profile.html">Perfil del paciente</a></li>
                         <!--<li><a href="patient-invoice.html">Patient Invoice</a></li>-->
                     </ul>
@@ -308,73 +308,7 @@
 
     </div>        
   </div>
-            
-            <div role="tabpanel" class="tab-pane fade page-calendar" id="sales">
-                <div class="row clearfix">
-                <!-- Radar Chart -->
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>RADAR CHART</h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="body">
-                                <canvas id="radar_chart" height="150"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- #END# Radar Chart -->
-                    <!-- Pie Chart -->
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>PIE CHART</h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="body">
-                                <canvas id="pie_chart" height="150"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- #END# Pie Chart --> 
-                </div>
-                <div class="row clearfix">                
-                    <!-- Bar Chart -->
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>BAR CHART</h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="body">
-                                <canvas id="bar_chart" height="120"></canvas>
-                            </div>
-                        </div>
-                    </div>         
+                    
                 </div>
             </div>            
         </div>

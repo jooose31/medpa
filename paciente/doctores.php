@@ -45,12 +45,7 @@
     </a>
     <ul class="mfb-component__list">
       <li>
-        <a href="doctor-schedule.html" data-mfb-label="Calendario" class="mfb-component__button--child bg-blue">
-          <i class="zmdi zmdi-calendar mfb-component__child-icon"></i>
-        </a>
-      </li>
-      <li>
-        <a href="doctors.html" data-mfb-label="Lista de doctores" class="mfb-component__button--child bg-orange">
+        <a href="doctors.php" data-mfb-label="Lista de doctores" class="mfb-component__button--child bg-orange">
           <i class="zmdi zmdi-account-o mfb-component__child-icon"></i>
         </a>
       </li>
@@ -237,7 +232,7 @@
             <div class="admin-action-info"> <span>Bienvenido</span>
                 <h3>Paciente</h3>
 				
-		<?php
+            <?php
               $user= "postgres";
               $password = "root";
               $dbname = "pacidoc";
@@ -259,16 +254,16 @@
                         WHERE correop = '$scorreo'";
             $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
             $line = pg_fetch_array($result);
-            $doc = $line["nombre"];
+            $pac = $line["nombre"];
 
-            echo "<h3>$doc</h3>";
+            echo "<h3>$pac</h3>";
 
               //fin de la conexion a la bd------------------------------------------------------------
               pg_close($link);
 
 
 
-               ?>
+            ?>
                 <ul>
                     <!--<li><a data-placement="bottom" title="Ir a bandeja de entrada" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
                     <li><a data-placement="bottom" title="Ir a doctores" href="doctors.html"><i class="zmdi zmdi-account"></i></a></li>                    
@@ -290,7 +285,7 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">Navegación Principal</li>
-                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>                                               
+                <li><a href="inicio.php"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>                                               
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Citas</span> </a>
                     <ul class="ml-menu">
                         <li><a href="doctor-schedule.html">Calendario</a></li>
@@ -299,14 +294,14 @@
                 </li>
                 <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Doctores</span> </a>
                     <ul class="ml-menu">
-                        <li class="active"><a href="doctors.html">Todos los doctores</a></li>
-                        <li><a href="add-doctor.html">Agregar Doctor</a></li>                        
+                        <li class="active"><a href="doctores.php">Todos los doctores</a></li>
+                        <li><a href="add-doctor.php">Agregar Doctor</a></li>                        
                         <!--<li><a href="profile.html">Perfil del doctor</a></li>-->
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-file-text"></i><span>Reportes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="recetas.html">Mis recetas</a></li>
+                        <li><a href="recetas.php">Mis recetas</a></li>
                         <!--<li><a href="add-patient.html">Agregar Pacientes</a></li>-->                     
                         <li><a href="examen.html">Mis exámenes</a></li>
                         <!--<li><a href="patient-invoice.html">Patient Invoice</a></li>-->
@@ -531,39 +526,85 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>Todos los doctores</h2>
-            <small class="text-muted">Bienvenidos a iMED</small>
+            <small class="text-muted">Bienvenidos a MedPa</small>
         </div>
         <div class="row clearfix">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
+                        <div class="header">
+                        <h2> Lista de Doctores</h2>
+                        <ul class="header-dropdown m-r--5">
+
+                        </ul>
+                    </div>
                     <div class="body">
-                        <div class="member-card verified">
-                            <ul class="header-dropdown">
-							<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="zmdi zmdi-more-vert"></i></a>
-								<ul class="dropdown-menu pull-right">
-									<!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Editar</a></li>-->
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Eliminar</a></li>
-									<!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Bloquear</a></li>-->
-								</ul>
-							</li>
-						</ul>
-                            <div class="thumb-xl member-thumb">
-                                <img src="assets/images/random-avatar3.jpg" class="img-circle" alt="profile-image">
-                                <i class="zmdi zmdi-info" title="usuario verificado"></i>
-                            </div>
+                    <div class="table-responsive">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>correo</th>
+                                <th>Especialidad</th>
+                              </tr>
+                            </thead>
+                            <tbody>
 
-                            <div class="">
-                                <h4 class="m-b-5">Dr. John</h4>
-                                <p class="text-muted">Dentista<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
-                            </div>
+                              <?php
+                              $user= "postgres";
+                              $password = "root";
+                              $dbname = "pacidoc";
+                              $port = "5432";
+                              $host = "localhost";
 
-                            <p class="text-muted">Guatemala</p>                           
-                            <!--<a href="profile.html"  class="btn btn-raised btn-sm">Ver Perfil</a>-->
-                            <!--<ul class="social-links list-inline m-t-10">
-                                <li><a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                <li><a title="twitter" href="#" ><i class="zmdi zmdi-twitter"></i></a></li>
-                                <li><a title="instagram" href="3" ><i class="zmdi zmdi-instagram"></i></a></li>
-                            </ul>-->
+                              $con = "host=$host port=$port dbname=$dbname user=$user password=$password";
+
+                              $link = pg_connect($con) or die("Error en la conexion: ".pg_last_error());
+
+                              //fin de la conexion -------------------------------------------------------------------------
+
+
+                              // session_start();
+                              // $scorreo=$_SESSION['correo'];
+                              $query5 = "SELECT D.correod,P.nombre, P.especialidad
+                              FROM pacdoc D, paciente P
+                              WHERE D.correod = '$scorreo' and D.correop = P.correop";
+                              $result5 = pg_query($link, $query5) or die('Query failed: ' . pg_last_error());
+                              $count=1;
+                              while ($line = pg_fetch_array($result5)) {
+                                $nombre = $line['nombre'];
+                                $correo = $line['correop'];
+                                $especialidad = $line['especialidad'];
+
+                                echo "<tr>";
+                                echo "<td>$count</td>";
+                                echo "<td>$nombre</td>";
+                                echo "<td>$especialidad</td>";
+                                echo "<td>$correo</td>";
+                                
+
+                                echo "</tr>";
+                                $count++;
+
+
+
+                              }
+
+
+
+                              //fin de la conexion a la bd------------------------------------------------------------
+                              pg_close($link);
+
+
+                               ?>
+
+
+
+
+
+                            </tbody>
+                          </table>
                         </div>
                     </div>
                 </div>
